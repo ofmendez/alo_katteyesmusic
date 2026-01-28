@@ -55,7 +55,8 @@ body {
 
 /* IMAGE */
 .visual img {
-   width: 420px;
+   width: 25vw;
+   min-width: 400px;
   display: block;
 }
 
