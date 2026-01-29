@@ -1,0 +1,195 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  -webkit-tap-highlight-color: transparent;
+   text-decoration: none;
+  outline: none;
+}
+
+
+* {
+  -webkit-user-select: none;
+  user-select: none;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --hover-color: #ff4fa3; /* ⬅️ pon aquí el color exacto que quieras */
+}
+
+
+
+/* BASE */
+body {
+  font-family: 'Silkscreen', monospace;
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(#e5e5e5 1px, transparent 1px),
+    linear-gradient(90deg, #e5e5e5 1px, transparent 1px);
+  background-size: 25px 25px;
+  height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* 🔑 elimina scroll */
+}
+
+.layout {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content:end;
+  gap: 7vh;
+  flex-direction: column;
+}
+
+/* 📱 Teléfono */
+.phone img {
+  max-height: 60vh;
+  width: auto;
+}
+
+/* 🎵 Plataformas */
+.platforms {
+  font-family: 'Silkscreen', monospace;
+  font-size: clamp(14px, 3vw, 30px);
+  text-align: center;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(12px, 2vw, 24px);
+}
+
+.platforms a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease,
+    letter-spacing 0.25s ease;
+}
+
+.platforms a:hover {
+  color: var(--hover-color);
+  transform: translateY(-2px);
+  letter-spacing: 0.15em;
+}
+
+.platforms a::after {
+  content: " – ";
+}
+
+.platforms a:last-child::after {
+  content: "";
+}
+
+
+/* 🌐 Redes */
+.socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+
+  width: 266px;          /* 🔑 controla el largo del fondo */
+  height: 108px;          /* 🔑 controla la altura del fondo */
+
+  background-image: url('../img/icon-bg.webp');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%; /* 🔑 el fondo se adapta al contenedor */
+  padding: 0 0 0 35px;
+}
+
+.socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-bg img {
+  width: 22px;
+  height: auto;
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
+}
+
+.socials a:hover .icon-bg img {
+  transform: scale(1.15) translateY(-2px);
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+}
+
+.socials a:active .icon-bg img {
+  transform: scale(0.95);
+}
+
+
+/* 📝 Post-it */
+.postit {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  
+}
+
+.postit img {
+  width: 12vw;
+  max-width: 350px;
+  min-width: 150px;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+
+.layout {
+  gap: 4vh;
+}
+
+  .phone img {
+    max-height: 40vh;
+  }
+
+  .platforms {
+    bottom: 140px;
+    text-align: center;
+    padding: 0 20px;
+    font-size: clamp(14px, 5vw, 30px);
+    padding-left: 10vw;
+    padding-right: 10vw;
+    line-height: 1.8em;
+ 
+  }
+
+  .socials {
+    bottom: 50px;
+  }
+
+  .postit {
+    top: 30px;
+    bottom: auto;
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+   .platforms a:hover {
+    transform: none;
+    letter-spacing: normal;
+  }
+
+}
